@@ -2,7 +2,7 @@ using System;
 
 interface IFraction
 {
-    void Print();
+    void print();
     double Calculate(double x);
 }
 
@@ -21,7 +21,7 @@ class Fraction : AbstractFraction
         this.a = a;
     }
 
-    public override void Print()
+    public override void print()
     {
         Console.WriteLine($"Значення дробу: 1/{a}x");
     }
@@ -50,7 +50,7 @@ class ThreeDimensionalFraction : AbstractFraction
         this.a3 = a3;
     }
 
-    public override void Print()
+    public override void print()
     {
         Console.WriteLine($"Значення дробу: 1/({a}x + 1/({a2}x + 1/({a3}x)))");
     }
@@ -84,14 +84,14 @@ class Program
         if (a2 == 0 && a3 == 0)
         {
             fraction = new Fraction(a);
-            fraction.Print();
+            fraction.print();
             double result = fraction.Calculate(x);
             Console.WriteLine($"Значення дробу 1/{a}x у точці x = {x} дорівнює {result}");
         }
         else
         {
             threeDimensionalFraction = new ThreeDimensionalFraction(a, a2, a3);
-            threeDimensionalFraction.Print();
+            threeDimensionalFraction.print();
             double result = threeDimensionalFraction.Calculate(x);
             Console.WriteLine($"Значення тривимірного похідного дробу 1/({a}x + 1/({a2}x + 1/({a3}x))) у точці x = {x} дорівнює {result}");
         }
